@@ -848,7 +848,7 @@ void process() {
         pubLaserCloudSurround.publish(laserCloudSurround3);
       }
 
-      if (frameCount % 20 == 0) {
+      if (frameCount % 100 == 0) {
         pcl::PointCloud<PointType> laserCloudMap;
         for (int i = 0; i < 4851; i++) {
           laserCloudMap += *laserCloudCornerArray[i];
