@@ -36,9 +36,9 @@
 
 #pragma once
 
-#include <cmath>
-
 #include <pcl/point_types.h>
+
+#include <cmath>
 
 typedef pcl::PointXYZI PointType;
 

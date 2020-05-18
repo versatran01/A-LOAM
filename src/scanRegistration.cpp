@@ -46,9 +46,11 @@
 #include <sensor_msgs/PointCloud2.h>
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_datatypes.h>
+
 #include <cmath>
 #include <string>
 #include <vector>
+
 #include "aloam_velodyne/common.h"
 #include "aloam_velodyne/tic_toc.h"
 
@@ -110,10 +112,13 @@ void removeClosedPointCloud(const pcl::PointCloud<PointT> &cloud_in,
 }
 
 void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr &laserCloudMsg) {
+  ROS_INFO("Inside laser cloud handler");
   if (!systemInited) {
     systemInitCount++;
+    ROS_INFO("system init count: %d", systemInitCount);
     if (systemInitCount >= systemDelay) {
       systemInited = true;
+      ROS_INFO("System initialized");
     } else
       return;
   }
